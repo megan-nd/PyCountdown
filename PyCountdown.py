@@ -22,6 +22,10 @@ def player_one():
         print(random.choice(consonant))
     elif ans == 'vowel':
         print(random.choice(vowel))
+    else:
+        print('Player One, try again')
+    ans = input()
+    ans = ans.strip()
 
 def player_two():
     print('Player Two, consonant or vowel?')
@@ -31,10 +35,15 @@ def player_two():
         print(random.choice(consonant))
     elif ans == 'vowel':
         print(random.choice(vowel))
+    else:
+        print('Player Two, try again')
+    ans = input()
+    ans = ans.strip()
         
 def countdown():
     start()
     letters()
+    # print all letters called
     print('You have 30 seconds. Good luck!')
     time.sleep(15)
     print('15 seconds left..')
@@ -56,10 +65,13 @@ def countdown():
     ans2 = input()
     if ans1 > ans2:
         print('Player Two, what is your word?')
-        ans4 = input()
+        ans = input()
+        ans = ans.strip()
     else:
         print('Player One, what is your word?')
-        ans3 = input()
+        ans = input()
+        ans = ans.strip()
+    # word validity?
     
 
 
