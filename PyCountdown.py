@@ -2,9 +2,9 @@ import random
 import sys
 import time
 
-consonant = ['B','C','D','F','G','H','J','K','L','M','N','P','Q','R','S','T','V','W','X','Y','Z']
-vowel = ['A','E','I','O','U']
-
+consonants = ['B','C','D','F','G','H','J','K','L','M','N','P','Q','R','S','T','V','W','X','Y','Z']
+vowels = ['A','E','I','O','U']
+letters_list = []
 
 def start():
     print('Its time for PyCountdown!')
@@ -14,36 +14,35 @@ def letters():
         player_one()
         player_two()
 
+def get_choice_from_player(player_name):
+    for x in range(0,2):
+      print(player_name + ', consonant or vowel?')
+      ans = input()
+      ans = ans.strip()
+      if ans == 'consonant':
+          letter = random.choice(consonants)
+          print(letter)
+          letters_list.append(letter)
+          break
+      elif ans == 'vowel':
+          letter = random.choice(vowels)
+          print(letter)
+          letters_list.append(letter)
+          break
+      else:
+          print(player_name + ', try again')
+
 def player_one():
-    print('Player One, consonant or vowel?')
-    ans = input()
-    ans = ans.strip()
-    if ans == 'consonant':
-        print(random.choice(consonant))
-    elif ans == 'vowel':
-        print(random.choice(vowel))
-    else:
-        print('Player One, try again')
-    ans = input()
-    ans = ans.strip()
+    get_choice_from_player('Player One')
 
 def player_two():
-    print('Player Two, consonant or vowel?')
-    ans = input()
-    ans = ans.strip()
-    if ans == 'consonant':
-        print(random.choice(consonant))
-    elif ans == 'vowel':
-        print(random.choice(vowel))
-    else:
-        print('Player Two, try again')
-    ans = input()
-    ans = ans.strip()
+    get_choice_from_player('Player Two')
         
 def countdown():
     start()
     letters()
     # print all letters called
+    print(letters_list)
     print('You have 30 seconds. Good luck!')
     time.sleep(15)
     print('15 seconds left..')
